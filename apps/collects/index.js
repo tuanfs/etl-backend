@@ -1,16 +1,15 @@
 import express from "express";
-import axios from "axios";
+import bodyParser from "body-parser";
+import cors from "cors";
+import { router } from "./src/routes/index.js";
 
 const app = express();
 
-axios
-  .get("http://127.0.0.1:3003/")
-  .then((response) => {
-    console.log("response", response.statusText);
-  })
-  .catch((err) => {
-    console.log("error", err);
-  });
+app.use(bodyParser.json());
+app.use(cors());
+app.use(express.json());
+app.use(router);
+
 app.listen(3002, () => {
   console.log("Listen on port 3002");
 });
