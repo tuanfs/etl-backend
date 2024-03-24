@@ -1,0 +1,7 @@
+version: "3.1"
+services:
+  admin:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080

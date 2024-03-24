@@ -1,6 +1,8 @@
 import express from "express";
-import { router as powerBiRouter } from "./powerBiRouter.js";
+import {router as ak247Router} from "./ak247Router.js";
+import {router as caRouter} from "./caRouter.js";
 
 export const router = express.Router();
 
-router.use("/power-bi", powerBiRouter);
+router.use("/ca", caRouter);
+router.use("/ak247", ak247Router);

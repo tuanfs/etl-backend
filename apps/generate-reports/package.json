@@ -1,5 +1,5 @@
 {
-  "name": "collects",
+  "name": "generate-reports",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -14,15 +14,12 @@
   "dependencies": {
     "@azure/msal-browser": "^3.10.0",
     "@azure/msal-node": "^2.6.4",
-    "@prisma/client": "^5.11.0",
     "axios": "^1.6.8",
     "body-parser": "^1.20.2",
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
     "express": "^4.19.0",
-    "mongoose": "^8.2.3",
     "nodemon": "^3.1.0",
-    "prisma": "^5.11.0",
     "querystring": "^0.2.1"
   }
 }
