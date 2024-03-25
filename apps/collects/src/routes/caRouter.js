@@ -1,10 +1,9 @@
 import express from "express";
-import {getAllRequestTicket} from "../datasources/ak247/dbController.js";
+import { getAllTicketRequestCa } from "../datasources/ca/dbController.js";
 
 export const router = express.Router();
 
 router.get("/tickets", async (req, res) => {
-  const result = await getAllRequestTicket();
-
+  const result = await getAllTicketRequestCa();
   return res.status(200).json(result);
 });

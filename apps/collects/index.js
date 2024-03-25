@@ -1,8 +1,8 @@
 import express from "express";
 import bodyParser from "body-parser";
 import cors from "cors";
-import {router} from "./src/routes/index.js";
-import {connectMongo} from "./src/datasources/ak247/dbConnect.js";
+import { router } from "./src/routes/index.js";
+import { connectMongo } from "./src/datasources/ak247/dbConnect.js";
 const app = express();
 
 app.use(bodyParser.json());

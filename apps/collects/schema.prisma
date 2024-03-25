@@ -1,0 +1,20 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlserver"
+  url      = env("DATABASE_CA_URL")
+}
+
+model call_req {
+  id    Int     @id @default(autoincrement())
+  summary String
+  description String?
+  zmain_tech Bytes?
+  requested_by Bytes?
+  status String
+  open_date Int
+  close_date Int?
+  resolve_date Int?
+}

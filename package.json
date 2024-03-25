@@ -9,7 +9,5 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "msal": "^1.4.18"
-  }
+  "dependencies": {}
 }
