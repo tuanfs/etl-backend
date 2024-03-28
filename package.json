@@ -4,10 +4,20 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "npx pnpm -r start",
+    "clean": "npx pnpm -r clean",
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "babel": {
+    "presets": [
+      "@babel/preset-env"
+    ]
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "dependencies": {}
+  "devDependencies": {
+    "@babel/cli": "^7.24.1",
+    "@babel/preset-env": "^7.24.3"
+  }
 }

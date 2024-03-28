@@ -3,10 +3,17 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "type": "module",
+  "type": "commonjs",
   "scripts": {
-    "start": "nodemon index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon --experimental-modules index.js",
+    "clean": "rm -rf node_modules",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "npx babel src --out-dir build/src && npx babel index.js --out-file build/index.js"
+  },
+  "babel": {
+    "presets": [
+      "@babel/preset-env"
+    ]
   },
   "keywords": [],
   "author": "",
@@ -14,12 +21,16 @@
   "dependencies": {
     "@azure/msal-browser": "^3.10.0",
     "@azure/msal-node": "^2.6.4",
+    "@babel/plugin-transform-modules-commonjs": "^7.24.1",
     "axios": "^1.6.8",
     "body-parser": "^1.20.2",
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
     "express": "^4.19.0",
+    "fs": "^0.0.1-security",
     "nodemon": "^3.1.0",
-    "querystring": "^0.2.1"
+    "querystring": "^0.2.1",
+    "@babel/cli": "^7.24.1",
+    "@babel/preset-env": "^7.24.3"
   }
 }

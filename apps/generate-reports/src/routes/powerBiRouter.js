@@ -11,16 +11,16 @@ import {
 export const router = express.Router();
 
 router.post("/login", async (req, res) => {
-  const { token, message } = await getAuthentication();
+  const { access_token, message } = await getAuthentication();
 
-  if (!token) {
+  if (!access_token) {
     return res.status(401).json({
       message
     });
   }
 
   return res.status(200).json({
-    token
+    access_token
   });
 });
 
