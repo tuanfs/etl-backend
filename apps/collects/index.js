@@ -7,6 +7,7 @@ const app = express();
 
 app.use(bodyParser.json());
 app.use(cors());
+app.options("*", cors());
 app.use(express.json());
 
 app.listen(3004, () => {
