@@ -1,4 +1,4 @@
-version: "3.1"
+version: '3.1'
 
 services:
   mongodb:
@@ -6,7 +6,7 @@ services:
     container_name: mongodb
     restart: always
     ports:
-      - "27016:27017"
+      - '27016:27017'
     environment:
       MONGO_INITDB_DATABASE: request
   clt:
@@ -17,9 +17,9 @@ services:
       args:
         module: collects
     environment:
-      - DATABASE_CA_URL: sqlserver://10.33.136.36:1433;database=mdb_new;user=sa;password=Hiepnhinh09!;encrypt=DANGER_PLAINTEXT
-      - GENENARATE_REPORT_API: http://localhost:3002/power-bi
-      - URI_MONGODB: "mongodb://mongodb:27017"
+      - DATABASE_CA_URL: 'sqlserver://10.33.136.36:1433;database=mdb_new;user=sa;password=Hiepnhinh09!;encrypt=DANGER_PLAINTEXT'
+      - GENENARATE_REPORT_API: 'http://localhost:3002/power-bi'
+      - URI_MONGODB: 'mongodb://mongodb:27017'
     restart: always
     ports:
       - 3004:3004
@@ -33,11 +33,11 @@ services:
       args:
         module: generate-reports
     environment:
-      WORKSPACE_ID: 4f42d374-2271-4740-a5ab-08941273aa02
-      CLIENT_ID: 12915b8c-5394-4728-a041-c3efd9596ff6
-      USERNAME_MS: hiepnn9@chipad.onmicrosoft.com
-      PASSWORD: Vok89967
-      TENNANT_ID: 0f6d670d7-8f78-4832-908d-1d5e54c11b5d
+      WORKSPACE_ID: '4f42d374-2271-4740-a5ab-08941273aa02'
+      CLIENT_ID: '12915b8c-5394-4728-a041-c3efd9596ff6'
+      USERNAME_MS: 'hiepnn9@chipad.onmicrosoft.com'
+      PASSWORD: 'Vok89967'
+      TENNANT_ID: '0f6d670d7-8f78-4832-908d-1d5e54c11b5d'
     restart: always
     ports:
       - 3002:3002
