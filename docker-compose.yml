@@ -17,9 +17,9 @@ services:
       args:
         module: collects
     environment:
-      - DATABASE_CA_URL: 'sqlserver://10.33.136.36:1433;database=mdb_new;user=sa;password=Hiepnhinh09!;encrypt=DANGER_PLAINTEXT'
-      - GENENARATE_REPORT_API: 'http://localhost:3002/power-bi'
-      - URI_MONGODB: 'mongodb://mongodb:27017'
+      DATABASE_CA_URL: 'sqlserver://10.33.136.36:1433;database=mdb_new;user=sa;password=Hiepnhinh09!;encrypt=DANGER_PLAINTEXT'
+      GENENARATE_REPORT_API: 'http://localhost:3002/power-bi'
+      URI_MONGODB: 'mongodb://mongodb:27017'
     restart: always
     ports:
       - 3004:3004
