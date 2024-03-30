@@ -2,20 +2,26 @@ import mongoose from "mongoose";
 import {
   postDatasetToPowerBi,
   postRowToTable,
-  deleteAllRowTable
+  deleteAllRowTable,
 } from "../../services/index.js";
-import { configs } from "../../config/index.js";
+import {configs} from "../../config/index.js";
 
 export async function getAllRequestTicketAk247() {
   try {
     console.log("getAllRequestTicket");
     const response = await mongoose.connection
-      .useDb("db_ca_request")
+      .useDb("request")
       .collection("tickets")
-      .find({ tenant: "MAILDEV" })
-      .limit(10)
-      .sort({ created_time: -1 })
-      .toArray();
+      .find({tenant: "MAILDEV"})
+      .limit(100)
+      .sort({created_time: -1})
+      .toArray()
+      .catch((error) => {
+        console.log("getAllRequestTicketAk247 error", error);
+        return {message: error.message};
+      });
+
+    console.log("response", response);
 
     return response.map((item) => {
       return {
@@ -28,7 +34,7 @@ export async function getAllRequestTicketAk247() {
         ct_fields: undefined,
         sla: undefined,
         calendar: undefined,
-        activities: undefined
+        activities: undefined,
       };
     });
   } catch (error) {
@@ -37,13 +43,13 @@ export async function getAllRequestTicketAk247() {
   }
 }
 
-export async function postDatasetToPowerBiAk247({ datasetName, allRows }) {
+export async function postDatasetToPowerBiAk247({datasetName, allRows}) {
   const tokenNew = configs.token;
 
   const responseDelete = await deleteAllRowTable({
     token: tokenNew,
     dataset: "25e7edfb-7661-4d21-9803-bb3c3f52e89b",
-    tableName: "Tickets"
+    tableName: "Tickets",
   });
 
   console.log(responseDelete);
@@ -64,7 +70,7 @@ export async function postDatasetToPowerBiAk247({ datasetName, allRows }) {
       Channel: item.channel.name,
       ["Nhóm hỗ trợ"]: item.group.name,
       ["Mức độ ưu tiên"]: item.priority?.name,
-      ["Dịch vụ"]: item.service.name
+      ["Dịch vụ"]: item.service.name,
     };
   });
 
@@ -72,7 +78,7 @@ export async function postDatasetToPowerBiAk247({ datasetName, allRows }) {
     token: tokenNew,
     dataset: "25e7edfb-7661-4d21-9803-bb3c3f52e89b",
     tableName: "Tickets",
-    allRows: newRows
+    allRows: newRows,
   });
 
   console.log(responseRow);
