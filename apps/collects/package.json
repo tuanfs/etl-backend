@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "type": "commonjs",
+  "type": "module",
   "scripts": {
     "clean": "rm -rf node_modules",
     "start": "nodemon index.js",
@@ -21,17 +21,23 @@
   "dependencies": {
     "@azure/msal-browser": "^3.10.0",
     "@azure/msal-node": "^2.6.4",
+    "@babel/cli": "^7.24.1",
+    "@babel/preset-env": "^7.24.3",
     "@prisma/client": "^5.11.0",
     "axios": "^1.6.8",
     "body-parser": "^1.20.2",
     "cors": "^2.8.5",
+    "csv-parser": "^3.0.0",
+    "csv-writer": "^1.6.0",
+    "dayjs": "^1.11.10",
     "dotenv": "^16.4.5",
+    "exceljs": "^4.4.0",
     "express": "^4.19.0",
+    "fs": "^0.0.1-security",
     "mongoose": "^8.2.3",
     "nodemon": "^3.1.0",
+    "papaparse": "^5.4.1",
     "prisma": "^5.11.0",
-    "querystring": "^0.2.1",
-    "@babel/cli": "^7.24.1",
-    "@babel/preset-env": "^7.24.3"
+    "querystring": "^0.2.1"
   }
 }
